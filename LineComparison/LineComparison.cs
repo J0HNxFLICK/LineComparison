@@ -2,6 +2,40 @@
 
 namespace LineComparison
 {
+
+    internal class InbuiltMethodsContainer //UC4 Using OOPS concept.
+    {
+        public void UsingEquals(int[] input)
+        {
+            bool equals = input[0].Equals(input[1]);
+            if (equals == true)
+            {
+                Console.WriteLine("Both the lines are of equal length.");
+            }
+
+            else
+            {
+                Console.WriteLine("Lines are not of equal length.");
+            }
+        }
+
+        public void UsingCompareTo(int[] input2)
+        {
+            int checker = input2[0].CompareTo(input2[1]);
+            if (checker > 0)
+            {
+                Console.WriteLine("Line 1 (Length = {0}) is greater than Line 2 (Length = {1}).", input2[0], input2[1]);
+            }
+            else if (checker < 0)
+            {
+                Console.WriteLine("Line 1 (Length = {0}) is less than Line 2 (Length = {1}).", input2[0], input2[1]);
+            }
+            else
+            {
+                Console.WriteLine("Line 1 (Length = {0}) is equal to Line 2 (Length = {1}).", input2[0], input2[1]);
+            }
+        }
+    }
     internal class LineComparison
     {
 
@@ -31,31 +65,17 @@ namespace LineComparison
                 twoLengths[count] =  LineLengthCalculator();
             }
             //Console.WriteLine("\nLength of Line 1 : " + twoLengths[0] + "\nLength of Line 2 : " + twoLengths[1]);
-            bool equals = twoLengths[0].Equals(twoLengths[1]);
-            if (equals == true)
-            {
-                Console.WriteLine("Both the lines are of equal length.");
-            }
 
-            else
-            {
-                Console.WriteLine("Lines are not of equal length.");
-            }
+            InbuiltMethodsContainer inbuiltMethodsContainer = new InbuiltMethodsContainer();
+
+            inbuiltMethodsContainer.UsingEquals(twoLengths);
 
             //UC3 Compare two lines to check wether they are equal, grater than or less than another line
-            int checker = twoLengths[0].CompareTo(twoLengths[1]);
-            if (checker > 0)
-            {
-                Console.WriteLine("Line 1 (Length = {0}) is greater than Line 2 (Length = {1})." , twoLengths[0] , twoLengths[1]);
-            }
-            else if (checker < 0)
-            {
-                Console.WriteLine("Line 1 (Length = {0}) is less than Line 2 (Length = {1}).", twoLengths[0], twoLengths[1]);
-            }
-            else
-            {
-                Console.WriteLine("Line 1 (Length = {0}) is equal to Line 2 (Length = {1}).", twoLengths[0], twoLengths[1]);
-            }
+            
+            inbuiltMethodsContainer.UsingCompareTo(twoLengths);
+            
         }
     }
+
+    
 }
